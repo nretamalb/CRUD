@@ -1,3 +1,9 @@
+body header {
+  width: 100%;
+  height: auto;
+}
+body header h1 {
+  text-align: center;
+}
 .taskNotes {
-  display: flex;
 }
