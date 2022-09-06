@@ -1,27 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDo App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header><h1>To Do</h1></header>
-    <main>
-      <div class="">
-        <label for="taskName">Task Name</label>
-        <input type="text" name="taskName" id="" value="New Task" />
+    <div class="app">
+      <h4>To Do App</h4>
+      <div id="addNew">
+        <span>Add New Task</span>
+        <i class="fa-solid fa-plus"></i>
       </div>
-      <div class="taskNotes">
-        <label for="notes">Notes</label>
-        <textarea name="" id="notes" cols="20" rows="5"></textarea>
-        <input type="button" value="Submit" />
+
+      <div id="addNewModal" class="modal">
+        <div class="modal-content">
+          <span id="closeModal" class="close">&times;</span>
+
+          <header>
+
+            <h3>New Task</h3>
+          </header>
+
+          <div class="modal-body">
+            <input type="text" name="" id="">
+            <input type="date" name="" id="">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+
+          </div>
+          <footer>
+            <span>Close</span>
+            <span>Add</span>
+          </footer>
+          
+        </div>
       </div>
-    </main>
-    <div class="taskList">
-      <div class="task"></div>
+      <div id="tasks">
+        <div>
+          <span class="task-name">Task1</span>
+          <span class="task-date">2022-09-06</span>
+          <p class="task-description">Task description</p>
+          <span class="options">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <i class="fa-solid fa-trash"></i>
+          </span>
+        </div>
+        <div>
+          <span class="task-name">Task2</span>
+          <span class="task-date">2022-09-06</span>
+          <p class="task-description">Task description</p>
+          <span class="options">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <i class="fa-solid fa-trash"></i>
+          </span>
+          </span>
+        </div>
+      </div>
     </div>
+    <script src="main.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3c27e88a83.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
