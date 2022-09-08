@@ -42,22 +42,42 @@ body {
 }
 /* Modal Content/Box */
 .modal-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 0.5fr 2fr 0.5fr;
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 }
-
-.modal-body input {
-  display: block;
+.close-modal {
+  justify-self: end;
+  grid-column-start: 2;
+  font-size: 28px;
+}
+.modal-header {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.close {
+.modal-footer {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  justify-self: end;
+  align-self: center;
+}
+
+/* .close {
   top: 0;
   float: right;
   font-size: 28px;
-}
+} */
 /*--- Tasks section ---*/
 #tasks {
   display: flex;

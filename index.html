@@ -21,23 +21,23 @@
 
       <div id="addNewModal" class="modal">
         <div class="modal-content">
-          <span id="closeModal" class="close">&times;</span>
+          <span id="closeModal" class="close-modal">&times;</span>
 
-          <header>
+          <div class="modal-header">
 
             <h3>New Task</h3>
-          </header>
+          </div>
 
           <div class="modal-body">
-            <input type="text" name="" id="">
-            <input type="date" name="" id="">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <input type="text" name="" id="newTaskTitle" value="">
+            <input type="date" name="" id="newTaskDate">
+            <textarea name="" id="newTaskDescription" cols="30" rows="10" ></textarea>
 
           </div>
-          <footer>
+          <div class="modal-footer">
             <span>Close</span>
-            <span>Add</span>
-          </footer>
+            <span id="modal-newTaskAddBTN">Add</span>
+          </div>
           
         </div>
       </div>
