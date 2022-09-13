@@ -12,6 +12,20 @@ body {
 
 /* background: #430f58; */
 /*--- Add New Button ---*/
+
+@media (min-width: 600px) {
+  body {
+    width: 100%;
+    display: flex;
+  }
+  .app {
+    max-width: 700px;
+    min-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 #addNew {
   display: flex;
   background-color: #8594e4;
