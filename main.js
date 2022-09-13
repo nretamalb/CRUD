@@ -67,9 +67,12 @@ function logData() {
   };
   tareas.push(tarea);
 
+  guardarEnLS(tareas);
+}
+
+function guardarEnLS(tareas) {
   let tareasEnString = JSON.stringify(tareas);
   window.localStorage.setItem("tareas", tareasEnString);
-  console.log(tareas);
 }
 
 /*Mostrar tareas luego de recargar pagina*/
@@ -89,7 +92,7 @@ function mostrarTareas() {
     <p class="task-description">${tarea.description}</p>
     <span class="options">
       <i class="fa-regular fa-pen-to-square"></i>
-      <i onClick="eliminarTarea(this)" class="fa-solid fa-trash"></i>
+      <i onClick="eliminarTarea(this, '${tarea.title}')" class="fa-solid fa-trash"></i>
     </span>
   </div>`;
   });
@@ -104,6 +107,8 @@ leerTareas();
 mostrarTareas();
 /*Editar y borrar tareas */
 
-function eliminarTarea(boton) {
+function eliminarTarea(boton, title) {
   boton.parentElement.parentElement.remove();
+  tareas = tareas.filter((tarea) => tarea.title !== title);
+  guardarEnLS(tareas);
 }
