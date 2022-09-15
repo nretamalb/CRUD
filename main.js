@@ -22,6 +22,7 @@ newTaskBtn.addEventListener("click", (e) => {
   document.getElementById("modal-title").innerHTML = "New Task";
   saveTaskBTN.style.display = "none";
   addNewTaskBTN.style.display = "inline";
+  newTaskTitle.removeAttribute("disabled", true);
   openModal(e);
 });
 
@@ -127,10 +128,10 @@ function editarTarea(boton, titleTarea) {
 
   /*Tomar informacion del objeto tarea */
   let tareaParaEditar = tareas.find((tarea) => tarea.title === titleTarea);
-  console.log(tareaParaEditar);
   newTaskTitle.value = tareaParaEditar.title;
   newTaskDate.value = tareaParaEditar.date;
   newTaskDescr.value = tareaParaEditar.description;
+  newTaskTitle.setAttribute("disabled", true);
 
   openModal();
 }
@@ -139,4 +140,25 @@ saveTaskBTN.addEventListener("click", (evento) => actualizarTarea(evento));
 
 function actualizarTarea(evento) {
   evento.preventDefault();
+  let title = newTaskTitle.value;
+  let newDate = newTaskDate.value;
+  let newDescr = newTaskDescr.value;
+
+  //Editar informacion de la tarea
+
+  tareas = tareas.map((tarea) => {
+    if (tarea.title === title) {
+      tarea.date = newDate;
+      tarea.description = newDescr;
+      return tarea;
+    } else {
+      return tarea;
+    }
+  });
+
+  guardarEnLS(tareas);
+  leerTareas(tareas);
+  mostrarTareas(tareas);
+  closeModal();
+  console.log(tareas);
 }
