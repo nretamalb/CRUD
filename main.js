@@ -9,6 +9,7 @@ const closeModalBTN = document.getElementById("modal-close");
 
 /*--- Boton Add nueva tarea ---*/
 const addNewTaskBTN = document.getElementById("modal-newTaskAddBTN");
+const saveTaskBTN = document.getElementById("modal-saveTaskAddBTN");
 
 /*****--- Abrir y cerrar Modal ---*****/
 
@@ -17,7 +18,12 @@ function openModal() {
   newTaskModal.style.display = "block";
 }
 
-newTaskBtn.addEventListener("click", (e) => openModal(e));
+newTaskBtn.addEventListener("click", (e) => {
+  document.getElementById("modal-title").innerHTML = "New Task";
+  saveTaskBTN.style.display = "none";
+  addNewTaskBTN.style.display = "inline";
+  openModal(e);
+});
 
 /*---Cerrar---*/
 function closeModal(e) {
@@ -91,8 +97,8 @@ function mostrarTareas() {
     <span class="task-date">${tarea.date}</span>
     <p class="task-description">${tarea.description}</p>
     <span class="options">
-      <i class="fa-regular fa-pen-to-square"></i>
-      <i onClick="eliminarTarea(this, '${tarea.title}')" class="fa-solid fa-trash"></i>
+      <i onClick="editarTarea(this, '${tarea.title}')" class="fa-regular fa-pen-to-square clickable"></i>
+      <i onClick="eliminarTarea(this, '${tarea.title}')" class="fa-solid fa-trash clickable"></i>
     </span>
   </div>`;
   });
@@ -111,4 +117,26 @@ function eliminarTarea(boton, title) {
   boton.parentElement.parentElement.remove();
   tareas = tareas.filter((tarea) => tarea.title !== title);
   guardarEnLS(tareas);
+}
+
+function editarTarea(boton, titleTarea) {
+  /*Edita Titulo Modal y boton guardar */
+  document.getElementById("modal-title").innerHTML = "Edit Task";
+  saveTaskBTN.style.display = "inline";
+  addNewTaskBTN.style.display = "none";
+
+  /*Tomar informacion del objeto tarea */
+  let tareaParaEditar = tareas.find((tarea) => tarea.title === titleTarea);
+  console.log(tareaParaEditar);
+  newTaskTitle.value = tareaParaEditar.title;
+  newTaskDate.value = tareaParaEditar.date;
+  newTaskDescr.value = tareaParaEditar.description;
+
+  openModal();
+}
+
+saveTaskBTN.addEventListener("click", (evento) => actualizarTarea(evento));
+
+function actualizarTarea(evento) {
+  evento.preventDefault();
 }

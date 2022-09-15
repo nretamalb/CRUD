@@ -90,6 +90,17 @@ body {
 }
 
 #modal-newTaskAddBTN {
+  display: inline;
+  cursor: pointer;
+  padding: 5px 15px;
+  background-color: #8594e4;
+  border-radius: 5px;
+  font-weight: 600;
+  color: white;
+}
+
+#modal-saveTaskAddBTN {
+  display: none;
   cursor: pointer;
   padding: 5px 15px;
   background-color: #8594e4;
@@ -146,4 +157,8 @@ body {
 
 .options i {
   margin: 0px 0.5rem;
+}
+
+.clickable {
+  cursor: pointer;
 }
